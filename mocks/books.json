@@ -1,0 +1,48 @@
+{
+  "_id": {
+    "$oid": "57bd934efd87776e04a7045c"
+  },
+  "title": "First book",
+  "description": "Some Description",
+  "authors": [
+    "Author 1",
+    "Author 2"
+  ],
+  "imageUrl": "http://lorempixel.com/400/600"
+}
+{
+  "_id": {
+    "$oid": "57bd936dfd87776e04a7045d"
+  },
+  "title": "Second book",
+  "description": "Some Description",
+  "authors": [
+    "Author 1",
+    "Author 2"
+  ],
+  "imageUrl": "http://lorempixel.com/400/600"
+}
+{
+  "_id": {
+    "$oid": "57bd9390fd87776e04a7045e"
+  },
+  "title": "Third book",
+  "description": "Some Description",
+  "authors": [
+    "Author 1",
+    "Author 2"
+  ],
+  "imageUrl": "http://lorempixel.com/400/600"
+}
+{
+  "_id": {
+    "$oid": "57bd93a7fd87776e04a7045f"
+  },
+  "title": "Fourth book",
+  "description": "Some Description",
+  "authors": [
+    "Author 1",
+    "Author 2"
+  ],
+  "imageUrl": "http://lorempixel.com/400/600"
+}
