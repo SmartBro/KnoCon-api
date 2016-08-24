@@ -1,5 +1,8 @@
 const apiRouter = require('express').Router();
-const booksRouter = require('./books');
+const booksRouter = require('./books/router');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27018/knocon');
 
 apiRouter.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:8080");
