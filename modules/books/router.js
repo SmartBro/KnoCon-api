@@ -30,13 +30,19 @@ function addBook (req, res) {
 }
 
 function updateBookById (req, res) {
-    Book.update({ _id: req.params.bookId }, req.body, (err, book) => {
-        res.json(book);
-    });
+    Book.findOneAndUpdate(
+        { _id: req.params.bookId },
+        req.body,
+        { new: true },
+        (err, book) => {
+            res.json(book);
+        }
+    );
 }
 
 function deleteBookById (req, res) {
-    Book.remove({ _id: req.params.bookId }, (err, mongoResponse) => {
-        res.json(mongoResponse);
-    });
+    Book.where({ _id: req.params.bookId })
+        .findOneAndRemove((err, book) => {
+            res.json(book);
+        });
 }
