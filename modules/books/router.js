@@ -1,31 +1,35 @@
-const faker = require('faker');
 const booksRouter = require('express').Router();
 const Book = require('./model');
 
-booksRouter.get('/', (req, res) => {
+booksRouter.get('/', getAllBooks);
+booksRouter.post('/', addBook);
+booksRouter.get('/:bookId', getBookById);
+booksRouter.put('/:bookId', updateBookById);
+
+module.exports = booksRouter;
+
+function getAllBooks (req, res) {
     Book.find({}, (err, books) => {
         res.json(books);
     });
-});
+}
 
-booksRouter.post('/', (req, res) => {
+function getBookById (req, res) {
+    Book.findById(req.params.bookId, (err, book) => {
+        res.json(book);
+    });
+}
+
+function addBook (req, res) {
     const newBook = new Book(req.body, false);
 
     newBook.save((err, book) => {
         res.json(book);
     });
-});
+}
 
-booksRouter.get('/:bookId', (req, res) => {
-    Book.findById(req.params.bookId, (err, book) => {
-        res.json(book);
-    });
-});
-
-booksRouter.put('/:bookId', (req, res) => {
+function updateBookById (req, res) {
     Book.update({ _id: req.params.bookId }, req.body, (err, book) => {
         res.json(book);
     });
-});
-
-module.exports = booksRouter;
+}
