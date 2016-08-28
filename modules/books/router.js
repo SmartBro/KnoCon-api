@@ -22,4 +22,10 @@ booksRouter.get('/:bookId', (req, res) => {
     });
 });
 
+booksRouter.put('/:bookId', (req, res) => {
+    Book.update({ _id: req.params.bookId }, req.body, (err, book) => {
+        res.json(book);
+    });
+});
+
 module.exports = booksRouter;
