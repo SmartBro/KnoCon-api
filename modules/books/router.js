@@ -5,6 +5,7 @@ booksRouter.get('/', getAllBooks);
 booksRouter.post('/', addBook);
 booksRouter.get('/:bookId', getBookById);
 booksRouter.put('/:bookId', updateBookById);
+booksRouter.delete('/:bookId', deleteBookById);
 
 module.exports = booksRouter;
 
@@ -31,5 +32,11 @@ function addBook (req, res) {
 function updateBookById (req, res) {
     Book.update({ _id: req.params.bookId }, req.body, (err, book) => {
         res.json(book);
+    });
+}
+
+function deleteBookById (req, res) {
+    Book.remove({ _id: req.params.bookId }, (err, mongoResponse) => {
+        res.json(mongoResponse);
     });
 }
